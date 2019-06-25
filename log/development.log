@@ -533,3 +533,23 @@ ActionView::Template::Error (undefined method `display_artist' for #<Song:0x0000
   
 app/views/songs/index.html.erb:3:in `block in _app_views_songs_index_html_erb___1344958204757894639_69896638588600'
 app/views/songs/index.html.erb:2:in `_app_views_songs_index_html_erb___1344958204757894639_69896638588600'
+Started GET "/songs" for 93.41.127.250 at 2019-06-25 09:46:46 +0000
+Cannot render console from 93.41.127.250! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `display_artist' for #<Song:0x00007f24289d8728>):
+    1: <ul>
+    2: <% @songs.each do |song| %>
+    3:   <li><%=song.display_artist%> - <%= link_to song.title, song_path(song) %></li>
+    4: <% end %>
+    5: </ul>
+    6: <br>
+  
+app/views/songs/index.html.erb:3:in `block in _app_views_songs_index_html_erb___1344958204757894639_69896638444580'
+app/views/songs/index.html.erb:2:in `_app_views_songs_index_html_erb___1344958204757894639_69896638444580'
